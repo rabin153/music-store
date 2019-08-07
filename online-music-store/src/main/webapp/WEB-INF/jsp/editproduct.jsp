@@ -14,6 +14,8 @@
 		<form:form action="/admin/product/editproduct" method="post"
 			modelAttribute="product" enctype="multipart/form-data">
 
+			<form:hidden path="id" name="productId" value="${product.id}" />
+
 			<div class="form-group">
 				<label for="ide">ID</label>
 				<form:errors path="id" cssStyle="color: #d43f3a" />

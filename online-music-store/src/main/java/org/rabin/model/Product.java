@@ -2,18 +2,25 @@ package org.rabin.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product extends BaseEntity {
 
+	@NotEmpty(message = "The product name must not be null or empty")
 	private String productName;
 	private String productCategory;
 	private String productDescription;
+
+	@Min(value = 1, message = "Product price should not be less than 1")
 	private double productPrice;
 	private String productCondition;
 	private String productStatus;
+
+	@Min(value = 1, message = "Product unit must not be less than 1")
 	private int unitInStock;
 	private String productManufacturer;
 
